@@ -10,8 +10,8 @@ from machine import Pin, ADC  # type: ignore[import-not-found]  # MicroPython-on
 # ------------------------------------------
 # CONFIGURAÇÃO WI-FI
 # ------------------------------------------
-SSID = "vivofibra_predioB"
-SENHA = "CNSL@2025vivofibraB$"
+SSID = ""
+SENHA = ""
 
 # ------------------------------------------
 # PINOS
