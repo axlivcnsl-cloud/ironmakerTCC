@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/input.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/theme.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <title>IronMaker</title>
+</head>
+
+<body class="min-h-screen bg-sky-100 text-slate-900">
+    <div class="min-h-screen md:flex">
+        <div id="overlay" class="fixed inset-0 z-30 hidden bg-black/60 md:hidden" aria-hidden="true"></div>
+        <aside id="sidebar"
+            class="fixed inset-y-0 left-0 z-40 w-64 -translate-x-full border-r border-sky-200 bg-sky-50 transition-transform duration-300 md:static md:translate-x-0">
+            <div class="flex h-full flex-col">
+                <div class="border-b border-sky-200 p-6">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-300 font-bold text-slate-950">
+                            IM</div>
+                        <div>
+                            <h1 class="font-bold">IronMaker</h1>
+                            <p class="text-xs text-slate-600">Smart Home</p>
+                        </div>
+                    </div>
+                </div>
+                <nav class="flex-1 p-4">
+                    <p class="mb-3 px-3 text-xs font-semibold uppercase tracking-wider text-slate-500">Navegação</p>
+                    <button data-section="dashboard"
+                        class="nav-button active mb-2 flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-sm">
+                        <i data-lucide="layout-dashboard" class="h-5 w-5"></i>Dashboard
+                    </button>
+                    <button data-section="controle"
+                        class="nav-button mb-2 flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-sm">
+                        <i data-lucide="sliders-horizontal" class="h-5 w-5"></i>Controle
+                    </button>
+                    <button data-section="monitoramento"
+                        class="nav-button mb-2 flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-sm">
+                        <i data-lucide="activity" class="h-5 w-5"></i>Monitoramento
+                    </button>
+                    <button data-section="configuracoes"
+                        class="nav-button mb-2 flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-sm">
+                        <i data-lucide="settings" class="h-5 w-5"></i>Configurações
+                    </button>
+                </nav>
+                <div class="border-t border-sky-200 p-4">
+                    <div class="rounded-xl bg-sky-100 p-4">
+                        <div class="mb-2 flex items-center gap-2">
+                            <span id="sidebarStatusDot" class="h-2.5 w-2.5 rounded-full bg-slate-500"></span>
+                            <span id="sidebarStatusTitle" class="text-sm font-medium">Conectando ao Pico W</span>
+                        </div>
+                        <p id="sidebarStatusText" class="text-xs text-slate-600">Aguardando resposta do controlador</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="min-w-0 flex-1">
+            <header class="sticky top-0 z-20 border-b border-sky-200 bg-sky-100/90 backdrop-blur">
+                <div class="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center gap-3">
+                        <button id="menuButton" class="rounded-lg p-2 hover:bg-sky-100 md:hidden"
+                            aria-label="Abrir menu">
+                            <i data-lucide="menu" class="h-5 w-5"></i>
+                        </button>
+                        <div>
+                            <p class="text-xs text-sky-600">Smart Home</p>
+                            <h2 id="pageTitle" class="font-semibold">Dashboard</h2>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Alternar tema">
+                            <i data-lucide="moon" class="theme-icon-moon"></i>
+                            <i data-lucide="sun" class="theme-icon-sun"></i>
+                        </button>
+                        <span class="hidden text-sm text-slate-600 sm:block">Casa principal</span>
+                        <div
+                            class="flex h-9 w-9 items-center justify-center rounded-full bg-sky-300 font-bold text-slate-950">
+                            <i data-lucide="house-wifi" class="h-5 w-5"></i>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-4 sm:p-6 lg:p-8">
+                <section id="dashboard" class="page-section">
+                    <div class="mb-8">
+                        <p class="mb-1 text-sm text-sky-600">Visão geral</p>
+                        <h3 class="text-2xl font-bold sm:text-3xl">Dashboard</h3>
+                        <p class="mt-2 text-sm text-slate-600">Acompanhe o funcionamento da sua casa inteligente.</p>
+                    </div>
+                    <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-5">
+                            <div class="mb-5 flex items-center justify-between">
+                                <span class="text-sm text-slate-600">Dispositivos conectados</span>
+                                <i data-lucide="cpu" class="h-5 w-5 text-blue-500"></i>
+                            </div>
+                            <p id="connectedDevices" class="text-3xl font-bold">--</p>
+                            <p class="mt-2 text-xs text-slate-600">4 LEDs e 1 ventilador configurados</p>
+                        </div>
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-5">
+                            <div class="mb-5 flex items-center justify-between">
+                                <span class="text-sm text-slate-600">Dispositivos ativos</span>
+                                <i data-lucide="power" class="h-5 w-5 text-sky-500"></i>
+                            </div>
+                            <p id="activeDevices" class="text-3xl font-bold">--</p>
+                            <p id="activePercent" class="mt-2 text-xs text-slate-600">Aguardando conexão</p>
+                        </div>
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-5">
+                            <div class="mb-5 flex items-center justify-between">
+                                <span class="text-sm text-slate-600">Temperatura</span>
+                                <i data-lucide="thermometer" class="h-5 w-5 text-yellow-500"></i>
+                            </div>
+                            <p id="dashboardTemp" class="text-3xl font-bold">--</p>
+                            <p class="mt-2 text-xs text-slate-600">Leitura do DHT11</p>
+                        </div>
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-5">
+                            <div class="mb-5 flex items-center justify-between">
+                                <span class="text-sm text-slate-600">Umidade</span>
+                                <i data-lucide="droplets" class="h-5 w-5 text-sky-1000"></i>
+                            </div>
+                            <p id="dashboardHumidity" class="text-3xl font-bold">--</p>
+                            <p class="mt-2 text-xs text-slate-600">Leitura do DHT11</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <div class="mb-4 flex items-center justify-between">
+                            <div>
+                                <h4 class="font-semibold">Acessos Rápidos</h4>
+                                <p class="mt-1 text-xs text-slate-500">Controle seus dispositivos</p>
+                            </div>
+                            <button id="goControl" class="text-sm text-sky-600 hover:text-sky-500">Ver tudo</button>
+                        </div>
+                        <div id="quickDevices" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+                    </div>
+
+                    <div class="mt-6 grid gap-6 lg:grid-cols-2">
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                            <div class="mb-5 flex items-start justify-between">
+                                <div>
+                                    <h4 class="font-semibold">Consumo de energia</h4>
+                                    <p class="mt-1 text-xs text-slate-500">Últimas 24 horas (simulado)</p>
+                                </div>
+                                <i data-lucide="zap" class="h-5 w-5 text-yellow-500"></i>
+                            </div>
+                            <p class="text-3xl font-bold">11 <span class="text-lg text-slate-600">kWh</span></p>
+                            <div class="mt-6 h-3 overflow-hidden rounded-full bg-sky-100">
+                                <div class="h-full w-[68%] rounded-full bg-sky-500"></div>
+                            </div>
+                            <div class="mt-2 flex justify-between text-xs text-slate-500">
+                                <span>0 kWh</span>
+                                <span>Meta: 16kWh</span>
+                            </div>
+                        </div>
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                            <div class="mb-5">
+                                <h4 class="font-semibold">Conexão dos módulos</h4>
+                                <p class="mt-1 text-xs text-slate-500">Status do hardware</p>
+                            </div>
+                            <div class="space-y-5">
+                                <div>
+                                    <div class="mb-2 flex justify-between text-sm">
+                                        <span>Raspberry Pi Pico W</span>
+                                        <span id="picoModuleStatus" class="text-slate-600">--</span>
+                                    </div>
+                                    <div class="h-2 rounded-full bg-sky-100">
+                                        <div id="picoModuleBar"
+                                            class="h-full w-0 rounded-full bg-sky-500 transition-all"></div>
+                                    </div>
+                                    <p id="picoModuleInfo" class="mt-1 text-xs text-slate-500">Aguardando conexão</p>
+                                </div>
+                                <div>
+                                    <div class="mb-2 flex justify-between text-sm">
+                                        <span>Sensores</span>
+                                        <span id="sensorModuleStatus" class="text-slate-600">--</span>
+                                    </div>
+                                    <div class="h-2 rounded-full bg-sky-100">
+                                        <div id="sensorModuleBar"
+                                            class="h-full w-0 rounded-full bg-sky-500 transition-all"></div>
+                                    </div>
+                                    <p id="sensorModuleInfo" class="mt-1 text-xs text-slate-500">DHT11, LDR e PIR</p>
+                                </div>
+                                <div>
+                                    <div class="mb-2 flex justify-between text-sm">
+                                        <span>Rede Wi-Fi</span>
+                                        <span id="wifiModuleStatus" class="text-slate-600">--</span>
+                                    </div>
+                                    <div class="h-2 rounded-full bg-sky-100">
+                                        <div id="wifiModuleBar"
+                                            class="h-full w-0 rounded-full bg-sky-500 transition-all"></div>
+                                    </div>
+                                    <p id="wifiModuleInfo" class="mt-1 text-xs text-slate-500">IP: --</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="controle" class="page-section hidden">
+                    <div class="mb-8">
+                        <p class="mb-1 text-sm text-sky-600">Automação</p>
+                        <h3 class="text-2xl font-bold sm:text-3xl">Controle</h3>
+                        <p class="mt-2 text-sm text-slate-600">Ligue ou desligue seus dispositivos.</p>
+                    </div>
+                    <div id="controlDevices" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+                </section>
+
+                <section id="monitoramento" class="page-section hidden">
+                    <div class="mb-8">
+                        <p class="mb-1 text-sm text-sky-600">Informações</p>
+                        <h3 class="text-2xl font-bold sm:text-3xl">Monitoramento</h3>
+                        <p class="mt-2 text-sm text-slate-600">Veja os dados atuais dos sensores.</p>
+                    </div>
+                    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                            <div class="mb-4 flex items-center gap-3">
+                                <i data-lucide="thermometer" class="text-amber-500"></i>
+                                <h4 class="font-semibold">Temperatura</h4>
+                            </div>
+                            <p id="monitorTemp" class="text-4xl font-bold">--</p>
+                            <p id="monitorTempInfo" class="mt-2 text-sm text-slate-500">DHT11</p>
+                        </div>
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                            <div class="mb-4 flex items-center gap-3">
+                                <i data-lucide="droplets" class="text-sky-1000"></i>
+                                <h4 class="font-semibold">Umidade</h4>
+                            </div>
+                            <p id="monitorHumidity" class="text-4xl font-bold">--</p>
+                            <p id="monitorHumidityInfo" class="mt-2 text-sm text-slate-500">DHT11</p>
+                        </div>
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                            <div class="mb-4 flex items-center gap-3">
+                                <i data-lucide="sun" class="text-yellow-500"></i>
+                                <h4 class="font-semibold">Luminosidade</h4>
+                            </div>
+                            <p id="monitorLight" class="text-4xl font-bold">--</p>
+                            <p id="monitorLightInfo" class="mt-2 text-sm text-slate-500">LDR / GP26</p>
+                        </div>
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                            <div class="mb-4 flex items-center gap-3">
+                                <i data-lucide="scan-eye" class="text-sky-500"></i>
+                                <h4 class="font-semibold">Presença</h4>
+                            </div>
+                            <p id="monitorPresence" class="text-4xl font-bold">--</p>
+                            <p id="monitorPresenceInfo" class="mt-2 text-sm text-slate-500">Sensor PIR / GP14</p>
+                        </div>
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                            <div class="mb-4 flex items-center gap-3">
+                                <i data-lucide="fan" class="text-sky-500"></i>
+                                <h4 class="font-semibold">Ventilador</h4>
+                            </div>
+                            <p id="monitorFan" class="text-4xl font-bold">--</p>
+                            <p id="monitorFanInfo" class="mt-2 text-sm text-slate-500">Controle GP10</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="configuracoes" class="page-section hidden">
+                    <div class="mb-8">
+                        <p class="mb-1 text-sm text-sky-600">Sistema</p>
+                        <h3 class="text-2xl font-bold sm:text-3xl">Configurações</h3>
+                        <p class="mt-2 text-sm text-slate-600">Configurações básicas do painel.</p>
+                    </div>
+                    <div class="max-w-2xl space-y-4">
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                            <h4 class="font-semibold">Rede</h4>
+                            <p id="settingsPicoIp" class="mt-1 text-sm text-slate-500">IP do Pico W: --</p>
+                            <div class="mt-4 flex items-center gap-2 text-sm text-slate-600">
+                                <span id="settingsStatusDot" class="h-2 w-2 rounded-full bg-slate-500"></span>
+                                <span id="settingsConnectionStatus">Aguardando conexão</span>
+                            </div>
+                            <p class="mt-2 text-xs text-slate-500">Endereço da API: http://192.168.15.6</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="./js/painel.js"></script>
+    <script src="./js/theme.js"></script>
+</body>
+
+</html>

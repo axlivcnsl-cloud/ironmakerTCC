@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronMaker</title>
+    <link rel="stylesheet" href="./css/input.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/app.css">
+    <link rel="stylesheet" href="./css/theme.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-sky-100 text-slate-900 antialiased">
+    <header class="fixed inset-x-0 top-0 z-50 border-b border-sky-200 bg-sky-50/50 backdrop-blur-xl">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Menu principal">
+            <a href="#inicio" class="flex items-center gap-3">
+                <span class="grid h-10 w-10 place-items-center rounded-xl bg-sky-300 text-slate-900"><i
+                        data-lucide="house" class="h-5 w-5"></i></span>
+                <span class="text-xl block font-bold tracking-tight">Iron<span class="text-sky-300">Maker</span></span>
+            </a>
+            <div id="navMenu"
+                class="absolute left-0 right-0 top-full hidden flex-col gap-1 border-b border-sky-200 bg-sky-50 p-5 md:static md:flex md:flex-row md:items-center md:gap-7 md:border-0 md:bg-transparent md:p-0">
+                <a class="nav-item py-2 font-semibold text-slate-600 transition hover:text-sky-600"
+                    href="#inicio">Início</a>
+                <a class="nav-item py-2 font-semibold text-slate-600 transition hover:text-sky-600"
+                    href="#sobre">Sobre</a>
+                <a class="nav-item py-2 font-semibold text-slate-600 transition hover:text-sky-600"
+                    href="#funcionalidades">Funcionalidades</a>
+                <a class="nav-item py-2 font-semibold text-slate-600 transition hover:text-sky-600"
+                    href="#tecnologias">Tecnologias</a>
+                <div class="flex items-center gap-2">
+                    <button type="button" class="theme-toggle" data-theme-toggle aria-label="Alternar tema">
+                        <i data-lucide="moon" class="theme-icon-moon"></i>
+                        <i data-lucide="sun" class="theme-icon-sun"></i>
+                    </button>
+                    <button id="menuToggle"
+                        class="grid h-10 w-10 place-items-center rounded-xl border border-sky-200 md:hidden"
+                        aria-label="Abrir menu" aria-expanded="false"><i data-lucide="menu"></i></button>
+                </div>
+                <a href="painel.html"
+                    class="mt-2 inline-flex items-center justify-center gap-2 rounded-xl bg-sky-300 px-5 py-3 font-bold border border-transparent text-slate-600 transition hover:bg-transparent hover:border-sky-600 hover:text-sky-600 md:mt-0">Acessar
+                    painel <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+            </div>
+            <button id="menuToggle" class="grid h-10 w-10 place-items-center rounded-xl border border-sky-200 md:hidden"
+                aria-label="Abrir menu" aria-expanded="false"><i data-lucide="menu"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="grid-glow relative overflow-hidden px-5 pb-20 pt-32 md:pb-28 md:pt-40">
+            <div class="mx-auto grid max-w-7xl items-center gap-14  lg:grid-cols-[1fr_1.05fr]">
+                <div class="relative z-10">
+                    <div
+                        class="mb-6 inline-flex items-center gap-2 rounded-full border border-sky-600/20 bg-sky-600/5 px-4 py-2 text-xs font-semibold text-sky-600 uppercase tracking-wider">
+                        Casa inteligente</div>
+                    <h1 class="max-w-2xl text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl">
+                        Sua casa acompanha <span class="text-sky-300">a sua rotina.</span></h1>
+                    <p class="mt-6 max-w-xl text-base leading-7 text-slate-600 md:text-lg">Monitore sensores e controle
+                        dispositivos da sua casa através de uma única interface web.</p>
+                    <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                        <a href="painel.html"
+                            class="inline-flex items-center justify-center gap-2 rounded-xl bg-sky-300 px-6 py-4 font-bold border border-transparent text-slate-600 transition hover:bg-transparent hover:border-sky-600 hover:text-sky-600">Explorar
+                            painel <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+                        <a href="#solucao"
+                            class="inline-flex items-center justify-center gap-2 rounded-xl border border-sky-600 px-6 py-4 font-semibold text-sky-600 transition hover:border-transparent hover:bg-sky-300 hover:text-slate-600">Como
+                            funciona <i data-lucide="move-down" class="h-4 w-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Mockup visual: valores ilustrativos, não são leituras reais -->
+                <div class="relative mx-auto w-full max-w-lg">
+                    <div class="absolute -inset-5 rounded-[2rem] bg-sky-100/10 blur-3xl"></div>
+                    <div class="bg-sky-100 relative rounded-[2rem] p-4 shadow-softglow sm:p-6">
+                        <div class="flex items-center justify-between border-b border-sky-200 pb-5">
+                            <div class="flex items-center gap-3">
+                                <div>
+                                    <p class="font-bold text-xl">Dashboard</p>
+                                    <p class="text-xs text-slate-500">Acompanhe o funcionamento da sua casa inteligente.
+                                    </p>
+                                </div>
+                            </div>
+                            <span
+                                class="inline-flex items-center gap-2 rounded-full bg-sky-100 px-3 py-1.5 text-xs font-semibold text-sky-600"><span
+                                    class="h-1.5 w-1.5 rounded-full bg-sky-300"></span> Demonstração</span>
+                        </div>
+                        <div class="mt-5 grid grid-cols-2 gap-3">
+                            <div class="rounded-2xl border border-sky-200 bg-sky-50 p-4">
+                                <div class="flex items-center justify-between"><span
+                                        class="text-sm text-slate-500">Iluminação</span><i data-lucide="lightbulb"
+                                        class="h-5 w-5 text-amber-300"></i></div>
+                                <p class="mt-4 text-2xl font-semibold">Automática</p>
+                                <p class="mt-1 text-xs text-slate-500">Presença / luminosidade</p>
+                            </div>
+                            <div class="rounded-2xl border border-sky-200 bg-sky-50 p-4">
+                                <div class="flex items-center justify-between"><span
+                                        class="text-sm text-slate-500">Iluminação</span><i data-lucide="lightbulb-off"
+                                        class="h-5 w-5 text-slate-200"></i></div>
+                                <p class="mt-4 text-2xl font-semibold">Manual</p>
+                                <p class="mt-1 text-xs text-slate-500">Acender / apagar</p>
+                            </div>
+                            <div class="rounded-2xl border border-sky-200 bg-sky-50 p-4">
+                                <div class="flex items-center justify-between"><span
+                                        class="text-sm text-slate-500">Ventilação</span><i data-lucide="fan"
+                                        class="h-5 w-5 text-blue-500"></i></div>
+                                <p class="mt-4 text-2xl font-semibold">Por temperatura</p>
+                                <p class="mt-1 text-xs text-slate-500">Acionamento automático</p>
+                            </div>
+                            <div class="rounded-2xl border border-sky-200 bg-sky-50 p-4">
+                                <div class="flex items-center justify-between"><span
+                                        class="text-sm text-slate-500">Garagem</span><i data-lucide="door-open"
+                                        class="h-5 w-5 text-sky-600"></i></div>
+                                <p class="mt-4 text-2xl font-semibold">Portão</p>
+                                <p class="mt-1 text-xs text-slate-500">Controle manual pelo painel</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="px-5 py-20 md:py-24">
+            <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
+                <div>
+                    <p class="section-kicker">O problema</p>
+                    <h2 class="mt-4 text-3xl font-semibold leading-tight sm:text-4xl">Pequenas tarefas que se repetem
+                        todos os dias.</h2>
+                </div>
+                <div>
+                    <p class="text-lg leading-8 text-slate-600">Acender luzes, ligar o ventilador e abrir o portão são ações simples, mas exigem atenção e intervenção manual. Em uma casa sem automação, essas tarefas ficam espalhadas e dependem de alguém perceber a necessidade e agir.</p>
+                    <p class="mt-5 leading-7 text-slate-500">Isso afeta moradores que buscam praticidade, pessoas que
+                        passam parte do dia fora de casa e quem deseja conhecer alternativas acessíveis de automação. O
+                        desafio é conectar sensores e dispositivos em uma solução que seja fácil de entender e
+                        controlar.</p>
+                    <div class="mt-7 grid gap-3 sm:grid-cols-3">
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-4"><i data-lucide="hand"
+                                class="h-5 w-5 text-amber-300"></i>
+                            <p class="mt-3 font-semibold">Ações manuais</p>
+                            <p class="mt-1 text-sm leading-5 text-slate-500">O usuário precisa lembrar de cada tarefa.
+                            </p>
+                        </div>
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-4"><i data-lucide="cloud-rain"
+                                class="h-5 w-5 text-sky-300"></i>
+                            <p class="mt-3 font-semibold">Mudanças no clima</p>
+                            <p class="mt-1 text-sm leading-5 text-slate-500">As mudanças climáticas podem afetar a rotina e gerar imprevistos.</p>
+                        </div>
+                        <div class="rounded-2xl border border-sky-200 bg-sky-50 p-4"><i data-lucide="panels-top-left"
+                                class="h-5 w-5 text-sky-600"></i>
+                            <p class="mt-3 font-semibold">Controles separados</p>
+                            <p class="mt-1 text-sm leading-5 text-slate-500">Fica mais difícil acompanhar tudo em um só
+                                lugar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="border-y border-sky-200 bg-sky-50 px-5 py-20 md:py-24">
+            <div class="mx-auto max-w-7xl">
+                <div class="mx-auto max-w-3xl text-center">
+                    <p class="section-kicker">A solução</p>
+                    <h2 class="mt-4 text-3xl font-semibold sm:text-4xl">Sensores que percebem. Sistema que responde.
+                        Você que controla.</h2>
+                    <p class="mt-5 leading-7 text-slate-600">A Casa Inteligente é uma maquete residencial automatizada,
+                        acompanhada por um painel web. Os sensores identificam condições do ambiente, os controladores
+                        processam as informações e os dispositivos executam ações automáticas. O usuário também pode
+                        acionar funções pelo painel.</p>
+                </div>
+                <div class="mt-12 grid gap-4 md:grid-cols-3">
+                    <article class="glass rounded-2xl p-6">
+                        <div class="icon-box"><i data-lucide="radio-tower"></i></div>
+                        <h3 class="mt-5 text-lg font-semibold">1. Detectar</h3>
+                        <p class="mt-2 leading-6 text-slate-500">Sensores identificam presença, luminosidade, ou
+                            temperatura, conforme a função implementada.</p>
+                    </article>
+                    <article class="glass rounded-2xl p-6">
+                        <div class="icon-box"><i data-lucide="cpu"></i></div>
+                        <h3 class="mt-5 text-lg font-semibold">2. Processar</h3>
+                        <p class="mt-2 leading-6 text-slate-500">Raspberry Pi faz a leitura e a coordenação
+                            dos dispositivos, de acordo com a arquitetura do protótipo.</p>
+                    </article>
+                    <article class="glass rounded-2xl p-6">
+                        <div class="icon-box"><i data-lucide="monitor-smartphone"></i></div>
+                        <h3 class="mt-5 text-lg font-semibold">3. Controlar</h3>
+                        <p class="mt-2 leading-6 text-slate-500">O painel web reúne comandos manuais e informações de
+                            estado em uma interface acessível pelo navegador.</p>
+                    </article>
+                </div>
+                <div
+                    class="mt-7 rounded-2xl border border-sky-300/20 bg-sky-300/5 p-5 md:flex md:items-center md:gap-5">
+                    <div class="icon-box shrink-0"><i data-lucide="git-merge"></i></div>
+                    <div class="mt-4 md:mt-0">
+                        <h3 class="font-semibold">O diferencial do projeto</h3>
+                        <p class="mt-1 leading-6 text-slate-600">Demonstrar, em uma maquete física, a relação entre
+                            sensores, automação e controle manual por uma interface web simples.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="funcionalidades" class="px-5 py-20 md:py-24">
+            <div class="mx-auto max-w-7xl">
+                <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+                    <div>
+                        <p class="section-kicker">Funcionalidades</p>
+                        <h2 class="mt-4 text-3xl font-semibold sm:text-4xl">Automação aplicada à rotina.</h2>
+                    </div>
+                </div>
+                <div class="mt-10 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+                    <article
+                        class="rounded-2xl border border-sky-200 bg-sky-50 p-6 transition hover:-translate-y-1 hover:border-sky-300/40">
+                        <div class="flex items-center justify-between">
+                            <div class="icon-box"><i data-lucide="lightbulb"></i></div><span
+                                class="rounded-full bg-sky-100 px-3 py-1 text-xs text-sky-600">Automático</span>
+                        </div>
+                        <h3 class="mt-5 text-lg font-semibold">Iluminação inteligente</h3>
+                        <p class="mt-2 leading-6 text-slate-500">Acionamento da luz por presença e/ou luminosidade, com
+                            possibilidade de ligar e desligar pelo painel web.</p>
+                    </article>
+                    <article
+                        class="rounded-2xl border border-sky-200 bg-sky-50 p-6 transition hover:-translate-y-1 hover:border-sky-300/40">
+                        <div class="flex items-center justify-between">
+                            <div class="icon-box"><i data-lucide="lightbulb-off"></i></div><span
+                                class="rounded-full bg-sky-100 px-3 py-1 text-xs text-sky-700">Manual</span>
+                        </div>
+                        <h3 class="mt-5 text-lg font-semibold">Iluminação manual</h3>
+                        <p class="mt-2 leading-6 text-slate-500">Controle direto da iluminação através do painel web.</p>
+                    </article>
+                    <article
+                        class="rounded-2xl border border-sky-200 bg-sky-50 p-6 transition hover:-translate-y-1 hover:border-sky-300/40">
+                        <div class="flex items-center justify-between">
+                            <div class="icon-box"><i data-lucide="thermometer"></i></div><span
+                                class="rounded-full bg-sky-100 px-3 py-1 text-xs text-sky-700">Automático +
+                                manual</span>
+                        </div>
+                        <h3 class="mt-5 text-lg font-semibold">Ventilação por temperatura</h3>
+                        <p class="mt-2 leading-6 text-slate-500">Aciona o ventilador conforme um limite de temperatura
+                            definido e permite comando manual pelo painel.</p>
+                    </article>
+                    <article
+                        class="rounded-2xl border border-sky-200 bg-sky-50 p-6 transition hover:-translate-y-1 hover:border-sky-300/40">
+                        <div class="flex items-center justify-between">
+                            <div class="icon-box"><i data-lucide="door-open"></i></div><span
+                                class="rounded-full bg-sky-100 px-3 py-1 text-xs text-sky-600">Manual</span>
+                        </div>
+                        <h3 class="mt-5 text-lg font-semibold">Portão da garagem</h3>
+                        <p class="mt-2 leading-6 text-slate-500">Comando de abertura e fechamento pelo painel web. A
+                            leitura de tag RFID é uma possibilidade em avaliação, não uma função garantida.</p>
+                    </article>
+                    <article
+                        class="rounded-2xl border border-sky-200 bg-sky-50 p-6 transition hover:-translate-y-1 hover:border-sky-300/40">
+                        <div class="flex items-center justify-between">
+                            <div class="icon-box"><i data-lucide="sliders-horizontal"></i></div><span
+                                class="rounded-full bg-sky-100 px-3 py-1 text-xs text-sky-600">Centralizado</span>
+                        </div>
+                        <h3 class="mt-5 text-lg font-semibold">Controle pelo navegador</h3>
+                        <p class="mt-2 leading-6 text-slate-500">Uma interface reúne os comandos manuais e apresenta o
+                            estado dos dispositivos previstos no projeto.</p>
+                    </article>
+                    <article
+                        class="rounded-2xl border border-sky-200 bg-sky-50 p-6 transition hover:-translate-y-1 hover:border-sky-300/40">
+                        <div class="flex items-center justify-between">
+                            <div class="icon-box"><i data-lucide="activity"></i></div><span
+                                class="rounded-full bg-sky-100 px-3 py-1 text-xs text-sky-700">Monitoramento</span>
+                        </div>
+                        <h3 class="mt-5 text-lg font-semibold">Acompanhamento dos sensores</h3>
+                        <p class="mt-2 leading-6 text-slate-500">Visualização das leituras e dos estados que estiverem
+                            conectados e disponíveis na versão final.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="beneficios" class="border-y border-sky-200 bg-sky-50 px-5 py-20 md:py-24">
+            <div class="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[.8fr_1.2fr]">
+                <div>
+                    <p class="section-kicker">Benefícios</p>
+                    <h2 class="mt-4 text-3xl font-semibold sm:text-4xl">Menos tarefas repetitivas. Mais controle.</h2>
+                    <p class="mt-5 leading-7 text-slate-500">A proposta é mostrar como pequenas automações podem ajudar
+                        na rotina sem exigir que o usuário entenda os detalhes eletrônicos do sistema.</p>
+                </div>
+                <div class="grid gap-4 sm:grid-cols-2">
+                    <div class="flex gap-4 rounded-2xl border border-sky-200 bg-sky-50 p-5">
+                        <div class="icon-box shrink-0"><i data-lucide="clock-3"></i></div>
+                        <div>
+                            <h3 class="font-semibold">Praticidade</h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-500">Ações repetitivas podem ocorrer
+                                automaticamente.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 rounded-2xl border border-sky-200 bg-sky-50 p-5">
+                        <div class="icon-box shrink-0"><i data-lucide="mouse-pointer-click"></i></div>
+                        <div>
+                            <h3 class="font-semibold">Facilidade de uso</h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-500">Comandos organizados em um painel web.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 rounded-2xl border border-sky-200 bg-sky-50 p-5">
+                        <div class="icon-box shrink-0"><i data-lucide="cloud-rain"></i></div>
+                        <div>
+                            <h3 class="font-semibold">Resposta ao ambiente</h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-500">Sensores ajudam o sistema a reagir à
+                                presença ou temperatura.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-4 rounded-2xl border border-sky-200 bg-sky-50 p-5">
+                        <div class="icon-box shrink-0"><i data-lucide="layers-3"></i></div>
+                        <div>
+                            <h3 class="font-semibold">Controle centralizado</h3>
+                            <p class="mt-1 text-sm leading-6 text-slate-500">Funções diferentes reunidas na mesma
+                                interface.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="persona" class="px-5 py-20 md:py-24">
+            <div class="mx-auto max-w-5xl">
+                <div class="text-center">
+                    <p class="section-kicker">Uma situação do dia a dia</p>
+                    <h2 class="mt-4 text-3xl font-semibold sm:text-4xl">Conheça o Jarvis</h2>
+                    <p class="mt-3 text-slate-500">Persona criada para explicar a necessidade que o projeto busca
+                        atender.</p>
+                </div>
+                <div class="glass mt-10 grid overflow-hidden rounded-3xl md:grid-cols-[.7fr_1.3fr]">
+                    <div class="flex flex-col justify-between bg-gradient-to-br from-sky-200 to-sky-50 p-7 md:p-9">
+                        <div
+                            class="grid h-16 w-16 place-items-center rounded-2xl border border-sky-300/20 bg-sky-100 text-sky-600">
+                            <i data-lucide="user-round" class="h-8 w-8"></i>
+                        </div>
+                        <div class="mt-8">
+                            <p class="text-2xl font-semibold">Jarvis, 28 anos</p>
+                            <p class="mt-2 text-sm leading-6 text-slate-600">Tem uma rotina movimentada e procura
+                                maneiras de economizar tempo, simplificar tarefas domésticas e ter mais controle sobre
+                                sua casa.</p>
+                        </div><span class="mt-6 w-fit px-3 py-1.5"></span>
+                    </div>
+                    <div class="p-7 md:p-9">
+                        <p class="text-lg font-semibold">Antes do IronMaker</p>
+                        <p class="text-lg leading-8 text-slate-700">No dia a dia, Jarvis precisava acender e apagar as
+                            luzes manualmente, lembrar de ligar o ventilador quando a temperatura aumentava e controlar
+                            os dispositivos da casa separadamente. Pequenas tarefas acabavam tomando parte do seu tempo.
+                        </p>
+                        <p class="mt-5 text-lg font-semibold">Depois do IronMaker</p>
+                        <p class="leading-7 text-slate-500">Com a proposta da IronMaker, Jarvis passa a contar com
+                            sensores que automatizam determinadas funções e um painel web que centraliza o controle dos
+                            dispositivos. Assim, ele consegue acompanhar o ambiente e realizar comandos de maneira mais
+                            prática.</p>
+                        <div class="mt-6 flex items-start gap-3 rounded-xl border border-sky-300/20 bg-sky-300/5 p-4"><i
+                                data-lucide="lightbulb" class="mt-0.5 h-5 w-5 shrink-0 text-sky-600"></i>
+                            <p class="text-sm leading-6 text-slate-600"><strong class="text-sky-600">O que
+                                    resolvemos:</strong> tornar tarefas cotidianas mais simples, reduzir intervenções
+                                manuais e reunir o controle da residência em um único lugar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tecnologias" class="border-y border-sky-200 bg-sky-50 px-5 py-20 md:py-24">
+            <div class="mx-auto max-w-7xl">
+                <div class="max-w-2xl">
+                    <p class="section-kicker">Por trás da solução</p>
+                    <h2 class="mt-4 text-3xl font-semibold sm:text-4xl">Tecnologia explicada sem complicação.</h2>
+                </div>
+                <div class="mt-9 grid gap-4 md:grid-cols-3">
+                    <article class="glass rounded-2xl p-6">
+                        <div class="icon-box"><i data-lucide="cpu"></i></div>
+                        <h3 class="mt-5 text-lg font-semibold">Sensores</h3>
+                        <p class="mt-2 leading-6 text-slate-500">Componentes eletrônicos que possibilitam automatizar determinadas ações.</p>
+                    </article>
+                    <article class="glass rounded-2xl p-6">
+                        <div class="icon-box"><i data-lucide="server"></i></div>
+                        <h3 class="mt-5 text-lg font-semibold">Raspberry Pi</h3>
+                        <p class="mt-2 leading-6 text-slate-500">Um pequeno computador que pode coordenar o sistema e
+                            apoiar a comunicação com a interface web.</p>
+                    </article>
+                    <article class="glass rounded-2xl p-6">
+                        <div class="icon-box"><i data-lucide="monitor"></i></div>
+                        <h3 class="mt-5 text-lg font-semibold">Interface web</h3>
+                        <p class="mt-2 leading-6 text-slate-500">O site acessado pelo navegador, onde o usuário
+                            acompanha informações e envia comandos.</p>
+                    </article>
+                </div>
+                <div class="mt-6 rounded-2xl border border-sky-200 bg-sky-100 p-5">
+                    <div
+                        class="flex flex-col items-center gap-3 text-center text-sm font-medium sm:flex-row sm:justify-center sm:gap-4">
+                        <span class="rounded-xl border border-sky-200 px-4 py-3">Sensores</span><i
+                            data-lucide="arrow-right" class="hidden h-4 w-4 text-sky-600 sm:block"></i><span
+                            class="rounded-xl border border-sky-200 px-4 py-3">Raspberry Pi</span><i
+                            data-lucide="arrow-right" class="hidden h-4 w-4 text-sky-600 sm:block"></i><span
+                            class="rounded-xl border border-sky-200 px-4 py-3">Painel web</span><i
+                            data-lucide="arrow-right" class="hidden h-4 w-4 text-sky-600 sm:block"></i><span
+                            class="rounded-xl border border-sky-300/30 bg-sky-300/20 px-4 py-3 text-sky-600">Usuário</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publico" class="border-y border-sky-200 bg-sky-100 px-5 py-20 md:py-24">
+            <div class="mx-auto max-w-7xl">
+                <div class="max-w-2xl">
+                    <p class="section-kicker">Público-alvo</p>
+                    <h2 class="mt-4 text-3xl font-semibold sm:text-4xl">Para quem quer entender e experimentar a
+                        automação.</h2>
+                </div>
+                <div class="mt-9 grid gap-4 md:grid-cols-3">
+                    <article class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                        <div class="icon-box"><i data-lucide="house"></i></div>
+                        <h3 class="mt-5 font-semibold">Moradores</h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-500">Pessoas interessadas em automatizar tarefas e
+                            centralizar comandos domésticos.</p>
+                    </article>
+                    <article class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                        <div class="icon-box"><i data-lucide="graduation-cap"></i></div>
+                        <h3 class="mt-5 font-semibold">Estudantes e educadores</h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-500">Público que deseja visualizar, em uma maquete,
+                            a integração de programação e eletrônica.</p>
+                    </article>
+                    <article class="rounded-2xl border border-sky-200 bg-sky-50 p-6">
+                        <div class="icon-box"><i data-lucide="wrench"></i></div>
+                        <h3 class="mt-5 font-semibold">Entusiastas de tecnologia</h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-500">Pessoas curiosas sobre sensores, sistemas
+                            embarcados e Internet das Coisas.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="px-5 py-20 md:py-24 bg-sky-50">
+            <div
+                class="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-sky-300/20 bg-gradient-to-br from-sky-100 via-sky-50 to-sky-100 p-8 text-center md:p-14">
+                <div class="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-sky-300 text-night"><i
+                        data-lucide="house-plug" class="h-7 w-7"></i></div>
+                <h2 class="mt-6 text-3xl font-semibold sm:text-4xl">Veja a automação em ação.</h2>
+                <p class="mx-auto mt-4 max-w-2xl leading-7 text-slate-600">Explore a interface de controle e conheça
+                    como os comandos da casa podem ser organizados em um único painel.</p>
+                <a href="painel.html"
+                    class="mt-8 inline-flex items-center justify-center gap-2 rounded-xl bg-sky-300 px-6 py-4 font-bold text-night transition hover:bg-sky-200">Acessar
+                    painel de demonstração <i data-lucide="arrow-up-right" class="h-4 w-4"></i></a>
+                <p class="mt-4 text-xs text-slate-500">A demonstração web não controla o hardware físico enquanto não
+                    houver integração.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="relative overflow-hidden border-t border-sky-200 bg-sky-50 px-6 pt-14 pb-8 text-sm text-slate-500">
+
+        <div class="absolute top-0 left-0 right-0 h-px bg-sky-400/50"></div>
+
+        <div
+            class="absolute -top-24 left-1/2 h-48 w-96 max-w-full -translate-x-1/2 rounded-full bg-sky-300/20 blur-3xl">
+        </div>
+
+        <div class="relative mx-auto max-w-5xl">
+            <div class="grid grid-cols-1 gap-10 text-center md:grid-cols-3">
+
+                <div class="md:text-left">
+                    <h2 class="text-xl font-semibold text-slate-900 mt-4">
+                        Iron<span class="text-sky-600">Maker</span>
+                    </h2>
+                    <p class="mx-auto mt-2 max-w-xs font-light leading-relaxed md:mx-0">
+                        Automação residencial com Raspberry Pi e IoT.
+                    </p>
+                </div>
+
+                <nav aria-label="Navegação do rodapé">
+                    <h3 class="mt-4 text-xs font-semibold uppercase tracking-widest text-slate-700">
+                        Navegar
+                    </h3>
+                    <ul class="mt-2 mb-4 space-y-2 font-light">
+                        <li>
+                            <a href="#publico-alvo" class="transition hover:text-sky-600">
+                                Público-alvo
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tecnologias" class="transition hover:text-sky-600">
+                                Tecnologias
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="md:text-right">
+                    <h3 class="text-xs font-semibold uppercase tracking-widest text-slate-700 mt-4">
+                        Tecnologias
+                    </h3>
+                    <div class="mt-4 flex flex-wrap justify-center gap-2 md:justify-end">
+                        <span
+                            class="border border-sky-200 bg-white/80 text-xs backdrop-blur-md rounded-2xl px-5 py-1.5">Raspberry
+                            Pi</span>
+                        <span
+                            class="border border-sky-200 bg-white/80 text-xs backdrop-blur-md rounded-2xl px-5 py-1.5">IoT</span>
+                        <span
+                            class="border border-sky-200 bg-white/80 text-xs backdrop-blur-md rounded-2xl px-5 py-1.5">Sensores</span>
+                        <span
+                            class="border border-sky-200 bg-white/80 text-xs backdrop-blur-md rounded-2xl px-5 py-1.5">Web</span>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-sky-200 pt-6 text-xs sm:flex-row">
+
+                <p class="mt-6">
+                    © 2026 IronMaker. Todos os direitos reservados.
+                </p>
+
+                <div class="mt-6 flex justify-center">
+                    <a class="text-sky-700 px-5 border border-sky-400 py-3 text-sm font-semibold transition duration-700 hover:shadow-sky-500/20 hover:bg-sky-300 hover:text-white mb-5 rounded-2xl"
+                        href="#inicio">
+                        Voltar ao Início
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="./js/app.js"></script>
+    <script src="./js/theme.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+.grid-glow {
+    background-image: radial-gradient(circle at 70% 30%,rgba(125, 211, 252, 1),transparent 34%),linear-gradient(rgba(241, 245, 249, 1) 1px,transparent 1px),linear-gradient(90deg,rgba(148,163,184,.045) 1px,transparent 1px);
+    background-size: auto, 36px 36px, 36px 36px;
+}
+
+.icon-box {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 15px;
+    background: rgba(0, 188, 255, 0.1);
+    color: #00bcff;
+}
+
+.section-kicker {
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #00bcff;
+}
+
+.glass {
+    background: linear-gradient(145deg,rgba(186, 230, 253, 1),rgba(241, 245, 249, 1));
+}
+
+.nav-open {
+    display: flex!important;
+}

@@ -1,0 +1,190 @@
+/* ==========================================================
+   IRONMAKER - Alternância de tema claro / escuro
+   Carregue DEPOIS de input.css, styles.css e app.css.
+
+   O modo claro é o original (nada muda). O modo escuro é ativado
+   por <html data-theme="dark"> e redefine as variáveis de cor do
+   Tailwind v4 (sky-*, slate-*) com a paleta do painelControle
+   (slate-950/900/800 + cyan). Assim todas as classes já usadas no
+   index.html, painel.html e painel.js passam a respeitar o tema,
+   inclusive hover e opacidades (ex.: bg-sky-50/50).
+   ========================================================== */
+
+/* ---------- Botão de alternância (vale para os dois modos) ---------- */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  padding: 0 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-sky-200, #bae6fd);
+  background: transparent;
+  color: var(--color-slate-600, #475569);
+  cursor: pointer;
+  transition: color .2s, border-color .2s, background-color .2s;
+}
+.theme-toggle:hover {
+  color: var(--color-sky-600, #0284c7);
+  border-color: var(--color-sky-400, #38bdf8);
+}
+.theme-toggle svg { width: 1.25rem; height: 1.25rem; }
+.theme-toggle .theme-icon-sun { display: none; }
+html[data-theme="dark"] .theme-toggle .theme-icon-moon { display: none; }
+html[data-theme="dark"] .theme-toggle .theme-icon-sun { display: block; }
+
+/* Rótulo sempre sem fundo próprio, herdando a cor do botão */
+.theme-toggle,
+.theme-toggle:hover,
+.theme-toggle:focus {
+  background: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.theme-toggle .theme-label {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--color-sky-400, #38bdf8);
+  outline-offset: 2px;
+}
+
+/* ---------- Hero no modo claro: brilho atrás do card de demonstração ---------- */
+.grid-glow {
+  background-color: #e0f2fe;
+  background-image:
+    radial-gradient(ellipse 42% 52% at 73% 50%, rgb(56 189 248 / .30), transparent 70%),
+    linear-gradient(rgb(14 165 233 / .06) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(14 165 233 / .06) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+  background-position: 0 0, 0 0, 0 0;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.grid-glow::before,
+.grid-glow::after {
+  background: none;
+  box-shadow: none;
+  opacity: 0;
+}
+.shadow-softglow {
+  box-shadow: 0 20px 70px -15px rgb(14 165 233 / .35);
+}
+
+/* Em telas muito pequenas mostra só o ícone */
+@media (max-width: 479px) {
+  .theme-toggle .theme-label { display: none; }
+  .theme-toggle { width: 2.5rem; padding: 0; }
+}
+
+html { transition: background-color .2s; }
+
+/* ---------- Hero (.grid-glow): remove as linhas brancas no escuro ---------- */
+html[data-theme="dark"] .grid-glow {
+  background-color: #020617;
+  background-image:
+    radial-gradient(ellipse at 78% 28%, rgb(34 211 238 / .14), transparent 55%),
+    linear-gradient(rgb(34 211 238 / .05) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(34 211 238 / .05) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+  background-position: 0 0, 0 0, 0 0;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+html[data-theme="dark"] .grid-glow::before,
+html[data-theme="dark"] .grid-glow::after {
+  background: none;
+  box-shadow: none;
+  opacity: 0;
+}
+
+/* ---------- Paleta escura ---------- */
+html[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* superfícies: body = slate-950, cards/sidebar = slate-900, bordas = slate-800 */
+  --color-sky-50:  #0f172a;
+  --color-sky-100: #020617;
+  --color-sky-200: #1e293b;
+
+  /* destaques: cyan, como no painelControle */
+  --color-sky-300: #22d3ee;
+  --color-sky-400: #06b6d4;
+  --color-sky-500: #06b6d4;
+  --color-sky-600: #22d3ee;
+  --color-sky-700: #67e8f9;
+
+  /* textos */
+  --color-slate-300: #334155;  /* trilho do toggle desligado */
+  --color-slate-600: #94a3b8;  /* texto secundário (slate-400) */
+  --color-slate-700: #cbd5e1;
+  --color-slate-900: #f1f5f9;  /* texto principal (slate-100) */
+
+  /* ícones coloridos um pouco mais claros no fundo escuro */
+  --color-blue-500:   #60a5fa;
+  --color-yellow-500: #facc15;
+  --color-amber-500:  #fbbf24;
+}
+
+/* Menu mobile do index: no desktop continua transparente */
+@media (min-width: 768px) {
+  html[data-theme="dark"] #navMenu { background: transparent; }
+}
+
+/* Cabeçalho do painel e do index (translúcidos) */
+html[data-theme="dark"] header { --tw-backdrop-blur: blur(12px); }
+
+/* Texto escuro sobre fundos ciano (botões, logo) */
+html[data-theme="dark"] .bg-sky-300:not(:hover),
+html[data-theme="dark"] a[class*="hover:bg-sky-300"]:hover,
+html[data-theme="dark"] a.text-night:hover {
+  color: #020617;
+}
+html[data-theme="dark"] a.text-night:hover { background-color: #67e8f9; }
+
+/* Bolinha dos toggles continua branca */
+html[data-theme="dark"] button[aria-pressed] > span,
+html[data-theme="dark"] #notificationToggle > span { background-color: #fff; }
+
+/* Status "online" em verde, como no painelControle */
+html[data-theme="dark"] #sidebarStatusDot.bg-sky-500,
+html[data-theme="dark"] #settingsStatusDot.bg-sky-500 { background-color: #34d399; }
+html[data-theme="dark"] #notificationToggle.bg-sky-500 { background-color: #10b981; }
+
+/* Chips do rodapé (bg-white/80) */
+html[data-theme="dark"] footer .bg-white\/80 { background-color: rgb(30 41 59 / .8); }
+
+/* ---------- Menu lateral do painel (estilo injetado pelo painel.js) ---------- */
+html[data-theme="dark"] .nav-button { color: #94a3b8; }
+html[data-theme="dark"] .nav-button:hover { background: #1e293b; color: #f1f5f9; }
+html[data-theme="dark"] .nav-button.active {
+  background: rgb(34 211 238 / .12);
+  color: #22d3ee;
+}
+
+/* ---------- Classes personalizadas do projeto (app.css / styles.css) ----------
+   Se alguma já usar as variáveis acima, estas regras só reforçam o resultado. */
+html[data-theme="dark"] .glass {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+}
+html[data-theme="dark"] .icon-box {
+  background: rgb(34 211 238 / .1);
+  color: #22d3ee;
+}
+html[data-theme="dark"] .section-kicker { color: #22d3ee; }
+html[data-theme="dark"] .shadow-softglow {
+  box-shadow: 0 20px 60px -20px rgb(34 211 238 / .25);
+}
