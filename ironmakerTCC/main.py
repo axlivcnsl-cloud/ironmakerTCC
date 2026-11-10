@@ -10,7 +10,7 @@ from machine import Pin, ADC  # type: ignore[import-not-found]  # MicroPython-on
 # ------------------------------------------
 # CONFIGURAÇÃO WI-FI
 # ------------------------------------------
-from secrets import SSID, SENHA
+from secrets import SSID, SENHA  # type: ignore[attr-defined]
 
 # ------------------------------------------
 # PINOS
